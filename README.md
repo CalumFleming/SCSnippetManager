@@ -8,6 +8,9 @@ A desktop app for organizing and playing your SuperCollider code snippets. Save 
 
 ---
 
+<img width="1197" height="798" alt="Screenshot 2026-02-02 at 16 02 22" src="https://github.com/user-attachments/assets/d89ba59d-caa0-4976-9e1c-edee5494c0ca" />
+
+
 ## What It Does
 
 - **Play snippets directly** - Click play and hear your code without copy/pasting
