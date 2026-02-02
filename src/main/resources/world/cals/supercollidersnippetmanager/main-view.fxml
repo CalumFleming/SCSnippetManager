@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="world.cals.supercollidersnippetmanager.MainController"
+            styleClass="root"
+            stylesheets="@styles.css">
+
+    <top>
+        <ToolBar styleClass="toolbar">
+            <Button text="New Snippet" onAction="#onNewSnippet" styleClass="primary-button"/>
+            <Button text="New Folder" onAction="#onNewFolder" styleClass="secondary-button"/>
+            <Separator/>
+            <Button text="Edit" onAction="#onEditSnippet" disable="true" fx:id="editButton" styleClass="secondary-button"/>
+            <Button text="Duplicate" onAction="#onDuplicateSnippet" disable="true" fx:id="duplicateButton" styleClass="secondary-button"/>
+            <Button text="Delete" onAction="#onDeleteSnippet" disable="true" fx:id="deleteButton" styleClass="danger-button"/>
+            <Separator/>
+            <Button text="Copy Code" onAction="#onCopySnippet" disable="true" fx:id="copyButton" styleClass="secondary-button"/>
+            <Button text="Export" onAction="#onExportSnippet" disable="true" fx:id="exportButton" styleClass="secondary-button"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="Import..." onAction="#onImportSnippet" styleClass="secondary-button"/>
+            <Button text="Settings" onAction="#onSettings" styleClass="secondary-button"/>
+        </ToolBar>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.25" styleClass="main-split">
+            <VBox spacing="12" styleClass="sidebar">
+                <padding>
+                    <Insets top="12" right="12" bottom="12" left="12"/>
+                </padding>
+                <TextField promptText="Search snippets..." fx:id="searchField" styleClass="search-field"/>
+
+                <VBox VBox.vgrow="ALWAYS" spacing="4">
+                    <Label text="FOLDERS" styleClass="section-header"/>
+                    <TreeView fx:id="folderTree" VBox.vgrow="ALWAYS" styleClass="folder-tree"/>
+                </VBox>
+
+                <VBox spacing="4">
+                    <HBox spacing="8" alignment="CENTER_LEFT">
+                        <Label text="TAGS" styleClass="section-header"/>
+                        <Label text="(click to filter, click again to clear)" styleClass="hint-label"/>
+                    </HBox>
+                    <ListView fx:id="tagList" prefHeight="120" styleClass="tag-list"/>
+                </VBox>
+            </VBox>
+
+            <SplitPane orientation="VERTICAL" dividerPositions="0.35" styleClass="content-split">
+                <VBox spacing="0">
+                    <HBox alignment="CENTER_LEFT" spacing="12" styleClass="snippets-header">
+                        <padding>
+                            <Insets top="8" right="12" bottom="8" left="12"/>
+                        </padding>
+                        <Label text="SNIPPETS" styleClass="section-header"/>
+                        <Label fx:id="filterLabel" text="" styleClass="filter-label"/>
+                        <Pane HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="clearFiltersButton" text="Clear Filters" onAction="#onClearFilters" styleClass="clear-filters-button" visible="false" managed="false"/>
+                    </HBox>
+                    <ListView fx:id="snippetList" VBox.vgrow="ALWAYS" styleClass="snippet-list"/>
+                </VBox>
+
+                <VBox spacing="0" styleClass="preview-pane">
+                    <VBox spacing="8" styleClass="preview-header">
+                        <padding>
+                            <Insets top="12" right="12" bottom="12" left="12"/>
+                        </padding>
+                        <HBox spacing="12" alignment="CENTER_LEFT">
+                            <Label fx:id="snippetTitle" text="No snippet selected" styleClass="snippet-title" HBox.hgrow="ALWAYS"/>
+                            <Button text="Setup SC" onAction="#onSetupSuperCollider" styleClass="secondary-button"/>
+                            <Button fx:id="playButton" text="▶ Play" onAction="#onPlaySnippet" disable="true" styleClass="play-button"/>
+                            <Button fx:id="stopButton" text="⏹ Stop All" onAction="#onStopAll" disable="true" styleClass="stop-button"/>
+                        </HBox>
+                        <Label fx:id="snippetMeta" text="" styleClass="snippet-meta"/>
+                    </VBox>
+                    <TextArea fx:id="codeArea" editable="false" wrapText="false" VBox.vgrow="ALWAYS" styleClass="code-area"/>
+                </VBox>
+            </SplitPane>
+        </SplitPane>
+    </center>
+</BorderPane>
