@@ -2,10 +2,6 @@
 
 A desktop app for organizing and playing your SuperCollider code snippets. Save your favorite synths, patterns, and effects in one place and trigger them with a click.
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
-![Java](https://img.shields.io/badge/Java-23-orange)
-![JavaFX](https://img.shields.io/badge/JavaFX-21-green)
-
 ---
 
 <img width="1197" height="798" alt="Screenshot 2026-02-02 at 16 02 22" src="https://github.com/user-attachments/assets/d89ba59d-caa0-4976-9e1c-edee5494c0ca" />
